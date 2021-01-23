@@ -9,7 +9,7 @@
 void headInfo(int ttyWidth)
 {
     int height = 5;
-    int width = ttyWidth / 2;
+    int width = ttyWidth - 1;
     int top = 1;
     int left = 1;
 

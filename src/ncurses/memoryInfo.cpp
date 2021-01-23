@@ -10,12 +10,12 @@
 void memoryInfo(int ttyWidth)
 {
     int height = 4;
-    int width = ttyWidth / 3;
+    int width = ttyWidth / 1.5;
     int top = 5;
     int left = 1;
 
     WINDOW *memory= newwin(height, width, top, left);
-    WINDOW *swap= newwin(height, width / 2, top, left + width);
+    WINDOW *swap= newwin(height, (width / 2) - 1, top, left + width);
     refresh();
 
     box(memory, 0, 0);

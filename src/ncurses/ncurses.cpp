@@ -21,6 +21,7 @@ int MyGKrellmTerminal()
     headInfo(ttyW);
     memoryInfo(ttyW);
     cpuInfo(ttyW);
+    dataBar(ttyW, 9, 1, "Name", 60);
 
     getch();
     endwin();

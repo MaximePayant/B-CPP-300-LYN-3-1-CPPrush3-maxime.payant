@@ -9,7 +9,7 @@
 void cpuInfo(int ttyWidth)
 {
     int height = 10;
-    int width = ttyWidth / 2;
+    int width = ttyWidth - 1;
     int top = 8;
     int left = 1;
 
