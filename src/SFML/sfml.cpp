@@ -5,28 +5,29 @@
 ** sfml.cpp
 */
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
 #include "sfml.hpp"
+#include "Body.hpp"
 
-int MyGKrellmGraphics()
+bool MyGKrellmGraphics(sysI::Body& body)
 {
-    sf::RenderWindow rwindow({910, 710}, "MyGKrellM");
-    sf::Event event;
+    (void)body;
+    static sfI::System system;
 
-    sf::Texture interface;
-    interface.loadFromFile("rsc/Interface rush3.png");
-
-    sf::Sprite background(interface, {0, 0, 910, 710});
-
-    while (rwindow.isOpen()) {
-        while (rwindow.pollEvent(event))
-            if (event.type == sf::Event::Closed)
-                rwindow.close();
-        rwindow.clear(sf::Color::Cyan);
-        rwindow.draw(background);
-        rwindow.display();
+    if (!system._rwindow.isOpen())
+        return (false);
+    while (system._rwindow.pollEvent(system._event)) {
+        if (system._event.type == sf::Event::Closed) {
+            system._rwindow.close();
+            return (false);
+        }
+        //if (system._event.type == sf::Event::KeyPressed
+        //&& system._event.key.code == sf::Keyboard::A) {
+        //    body._Lib = sysI::Body::NCURSES;
+        //    system._rwindow.close();
+        //}
     }
-
-    return (0);
+    system._rwindow.clear(sf::Color::Cyan);
+    system.draw();
+    system._rwindow.display();
+    return (true);
 }

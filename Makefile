@@ -8,7 +8,7 @@
 ## VARIABLES
 ## --------------------------------------------->
 EXEC :=	MyGKrellm
-FLAG := -W -Werror -Wall -Wextra -pedantic -g3 -std=c++14 -fno-builtin
+FLAG := -W -Werror -Wall -Wextra -pedantic -g3 -std=c++17 -fno-builtin
 CC :=	g++
 EXT :=	cpp
 ## --------------------------------------------->

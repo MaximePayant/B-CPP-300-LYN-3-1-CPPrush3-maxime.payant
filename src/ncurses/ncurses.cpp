@@ -6,12 +6,14 @@
 */
 
 #include "ncurses.hpp"
+#include "Body.hpp"
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <ncurses.h>
 
-int MyGKrellmTerminal()
+bool MyGKrellmTerminal(sysI::Body& body)
 {
+    (void)body;
     int ttyW;
     struct winsize w;
 
@@ -25,5 +27,5 @@ int MyGKrellmTerminal()
 
     getch();
     endwin();
-    return 0;
+    return (true);
 }

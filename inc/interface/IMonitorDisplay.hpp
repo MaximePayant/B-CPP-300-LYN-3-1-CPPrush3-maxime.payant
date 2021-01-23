@@ -6,6 +6,7 @@
 #define B_CPP_300_LYN_3_1_CPPRUSH3_MAXIME_PAYANT_IMONITORDISPLAY_HPP
 
 #include "sysInfo.hpp"
+
 namespace sysI {
     class IMonitorDisplay {
     public:

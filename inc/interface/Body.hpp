@@ -7,10 +7,22 @@
 
 #include "IMonitorDisplay.hpp"
 
-namespace sysI {
-    class Body : public IMonitorDisplay {
+namespace sysI
+{
+    class Body;
+}
+
+bool MyGKrellmTerminal(sysI::Body& body);
+bool MyGKrellmGraphics(sysI::Body& body);
+
+namespace sysI
+{
+    class Body : public IMonitorDisplay
+    {
     public:
         enum DisplayLib {SFML, NCURSES};
+        bool (*_prog[2])(sysI::Body&) = {&MyGKrellmGraphics, &MyGKrellmTerminal};
+
         Body(enum DisplayLib lib);
         ~Body() override;
 
@@ -36,6 +48,9 @@ namespace sysI {
         Network * getModuleNetwork() override;
 
         void InitModule(std::string lib);
+
+        enum DisplayLib _Lib;
+
     private:
         Memory *_ModuleMemory;
         UserName *_ModuleUserName;
@@ -44,7 +59,6 @@ namespace sysI {
         OsInfo *_ModuleOsInfo;
         TimeAndDate *_ModuleTimeAndDate;
         Network *_ModuleNetwork;
-        enum DisplayLib _Lib;
     };
 }
 
