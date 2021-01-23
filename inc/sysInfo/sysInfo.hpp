@@ -8,6 +8,7 @@
 #ifndef __SYSINFO_H__
 #define __SYSINFO_H__
 
+#include "Network.hpp"
 #include "UserName.hpp"
 #include "Memory.hpp"
 #include "OsInfo.hpp"
