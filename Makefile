@@ -26,7 +26,9 @@ SRC :=	$(filter-out $(IGNORE_SRC), $(sort $(shell find $(SRC_FOLDER) -ignore_rea
 
 ## INCLUDE VARIABLES
 ## --------------------------------------------->
-INC_FOLDER =	.
+INC_FOLDER =	inc/ncurses \
+				inc/SFML \
+				inc/sysInfo \
 
 IGNORE_INC := 	.
 INC := $(filter-out $(IGNORE_INC), $(addprefix -I, $(INC_FOLDER)))
