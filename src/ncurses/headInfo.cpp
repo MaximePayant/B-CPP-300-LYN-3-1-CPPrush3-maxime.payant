@@ -6,10 +6,10 @@
 */
 #include "ncurses.hpp"
 
-void headInfo()
+void headInfo(int ttyWidth)
 {
-    int height = 10;
-    int width = 100;
+    int height = 5;
+    int width = ttyWidth / 2;
     int top = 1;
     int left = 1;
 
@@ -17,10 +17,10 @@ void headInfo()
     refresh();
 
     box(head, 0, 0);
-    mvwprintw(head, 0, 2, "MY GKRELLM");
-    for (int i = 2; i < 10; i += 2)
+    boxTitle(head, "MYGKRELLM");
+    for (int i = 1; i < 4; i += 1)
         mvwprintw(head, i, 5, "> %s :", "Os Name");
-    for (int i = 2; i < 10; i += 2)
-        mvwprintw(head, i, 50, "> %s :", "Os NExt");
+    for (int i = 1; i < 4; i += 1)
+        mvwprintw(head, i, width / 2, "> %s :", "Os Next");
     wrefresh(head);
 }

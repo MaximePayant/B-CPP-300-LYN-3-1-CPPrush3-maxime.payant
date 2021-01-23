@@ -8,9 +8,14 @@
 #ifndef __NCURSES_H__
 #define __NCURSES_H__
 #include <ncurses.h>
+#include <iostream>
 
 int MyGKrellmTerminal();
-void headInfo();
+void headInfo(int ttyWidth);
+void memoryInfo(int ttyWidth);
+void boxTitle(WINDOW *win, std::string title);
+void cpuInfo(int ttyWidth);
+
 
 
 #endif // __NCURSES_H__

@@ -17,7 +17,6 @@ EXT :=	cpp
 ## --------------------------------------------->
 SRC_FOLDER :=	src \
 				src/ncurses \
-				src/SFML \
 				src/sysInfo \
 
 IGNORE_SRC :=\

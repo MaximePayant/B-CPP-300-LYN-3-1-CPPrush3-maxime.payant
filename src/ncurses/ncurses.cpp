@@ -12,14 +12,16 @@
 
 int MyGKrellmTerminal()
 {
+    int ttyW;
     struct winsize w;
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-    initscr();
-    printw("%d\n", w.ws_row);
-    printw("%d col\n", w.ws_col);
-    headInfo();
 
-    refresh();
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+    ttyW = w.ws_col;
+    initscr();
+    headInfo(ttyW);
+    memoryInfo(ttyW);
+    cpuInfo(ttyW);
+
     getch();
     endwin();
     return 0;
