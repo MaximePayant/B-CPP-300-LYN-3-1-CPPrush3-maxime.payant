@@ -7,7 +7,7 @@
 
 ## VARIABLES
 ## --------------------------------------------->
-EXEC :=	starbound
+EXEC :=	MyGKrellm
 FLAG := -W -Werror -Wall -Wextra -pedantic -g3 -std=c++14 -fno-builtin
 CC :=	g++
 EXT :=	cpp
@@ -39,7 +39,7 @@ INC := $(filter-out $(IGNORE_INC), $(addprefix -I, $(INC_FOLDER)))
 LFOLDER :=
 LIB_FOLDER := 	#-L $(LFOLDER)
 LIB_NAME :=
-LIB_EXT :=	-l m
+LIB_EXT :=	-lm -lncurses -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 ## --------------------------------------------->
 
 ## OBJECT VARIABLES
