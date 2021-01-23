@@ -10,6 +10,12 @@
 
 #include <iostream>
 #include <thread>
+#include <map>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
+#include <iomanip>
 
 namespace sysI
 {
@@ -18,13 +24,27 @@ namespace sysI
     {
 
         private:
-            unsigned _procCount;
+            class CPU
+            {
+                private:
+                    unsigned _lastTotalJiffies;
+                    unsigned _lastWorkJiffies;
+                    double _percent;
+
+                public:
+                    CPU();
+
+                    void updateCPU(unsigned index, const std::string& cpuInfo);
+                    double getPercent() { return (_percent); };
+            };
+            unsigned _coreCount;
+            std::map<std::string, CPU> _core;
 
         public:
-            Core() {};
+            Core();
 
             void checkCore();
-            unsigned getProcCount() const;
+            unsigned getCoreCount() const;
 
     };
 
@@ -32,7 +52,7 @@ namespace sysI
 
 inline std::ostream& operator<<(std::ostream& os, const sysI::Core& core)
 {
-    os <<  "Number of Processor: " << core.getProcCount() << std::endl;
+    os <<  "Number of Processor: " << core.getCoreCount() << std::endl;
     return (os);
 }
 

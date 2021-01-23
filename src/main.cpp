@@ -7,6 +7,8 @@
 
 #include "sysInfo.hpp"
 
+#include <unistd.h>
+
 int main()
 {
     sysI::Memory mem;
@@ -28,6 +30,7 @@ int main()
     sysI::Memory::memType = sysI::Memory::GB;
     std::cout.precision(10);
     std::cout << mem << std::endl;
+    usleep(2000000);
     core.checkCore();
     std::cout << core << std::endl;
     return (0);
