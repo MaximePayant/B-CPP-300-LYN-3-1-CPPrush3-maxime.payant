@@ -36,18 +36,20 @@ bool sysI::Network::getCo() const {
 
 bool sysI::Network::checkConnection() {
     FILE *output;
-    unsigned int i;
-
-    if(!(output = popen("/sbin/route -n | grep -c '^0\\.0\\.0\\.0'","r")))
+    char val[100];
+    std::string tmp;
+    if(!(output = popen("/sbin/ip route","r"))) {
         return false;
-    fscanf(output,"%u",&i);
+    } fgets(val, 100, output);
+    tmp.append(val);
     pclose(output);
-    if (i == 1)
-        return true;
-    else if (i == 0)
+    if (tmp.empty()) {
+        tmp.clear();
         return false;
-    return false;
-
+    } else {
+        tmp.clear();
+        return true;
+    }
 }
 
 std::string refreshByteDown(std::string bytedown) {
@@ -104,7 +106,7 @@ bool sysI::Network::update() {
         _Speed = "0 k/s";
         return false;
     } _byteDown = refreshByteDown(_byteDown);
-    _byteUp = refreshByteDown(_byteUp);
+    _byteUp = refreshByteUp(_byteUp);
     _Name = refreshName(_Name);
     _Speed = refreshSpeed(_Speed, _byteUp, _byteDown);
 
