@@ -13,6 +13,7 @@ sysI::Body::Body(enum DisplayLib lib)
 sysI::Body::~Body() {}
 
 void sysI::Body::InitModule(std::string lib) {
+    (void)lib;
     _ModuleMemory = new Memory();
     _ModuleUserName = new UserName();
     _ModuleHostName = new HostName();

@@ -8,5 +8,6 @@
 #ifndef __SFML_H__
 #define __SFML_H__
 
+int MyGKrellmGraphics();
 
 #endif // __SFML_H__

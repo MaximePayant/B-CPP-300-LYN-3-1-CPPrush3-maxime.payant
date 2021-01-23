@@ -95,8 +95,6 @@ std::string refreshSpeed(std::string speed, std::string byteup, std::string byte
 }
 
 bool sysI::Network::update() {
-    int i = 0;
-    FILE *neo = new FILE;
     _coState = checkConnection();
 
     if (!_coState) {

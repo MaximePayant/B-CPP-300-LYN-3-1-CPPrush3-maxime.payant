@@ -7,11 +7,12 @@
 
 #include "sysInfo.hpp"
 #include "ncurses.hpp"
+#include "sfml.hpp"
 #include <unistd.h>
 
 int main()
 {
-    int i = MyGKrellmTerminal();
+    int i = MyGKrellmGraphics();
 
     // sysI::Memory mem;
     // sysI::UserName name;

@@ -17,6 +17,8 @@ EXT :=	cpp
 ## --------------------------------------------->
 SRC_FOLDER :=	src \
 				src/ncurses \
+				src/SFML \
+				src/body \
 				src/sysInfo \
 
 IGNORE_SRC :=\
@@ -32,6 +34,7 @@ SRC :=	$(filter-out $(IGNORE_SRC), $(sort $(shell find $(SRC_FOLDER) -ignore_rea
 ## INCLUDE VARIABLES
 ## --------------------------------------------->
 INC_FOLDER =	inc/ncurses \
+				inc/interface \
 				inc/SFML \
 				inc/sysInfo \
 
