@@ -17,10 +17,16 @@ EXT :=	cpp
 ## --------------------------------------------->
 SRC_FOLDER :=	src \
 				src/ncurses \
-				src/sfml \
+				src/SFML \
 				src/sysInfo \
 
-IGNORE_SRC := 	.
+IGNORE_SRC :=\
+				#src/sysInfo/Memory.cpp
+				#src/sysInfo/UserName.cpp \
+				#src/sysInfo/OsInfo.cpp \
+				#src/sysInfo/OsInfo.cpp \
+				#src/sysInfo/TimeAndDate.cpp
+
 SRC :=	$(filter-out $(IGNORE_SRC), $(sort $(shell find $(SRC_FOLDER) -ignore_readdir_race -maxdepth 1 -name '*.$(EXT)')))
 ## --------------------------------------------->
 
