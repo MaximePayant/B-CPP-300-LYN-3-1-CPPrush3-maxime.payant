@@ -27,40 +27,37 @@ namespace sysI
         ~Body() override;
 
         void setModuleMemory(Memory &mod) override;
-        Memory *getModuleMemory() override;
+        Memory& getModuleMemory() override;
 
         void setModuleUserName(UserName &mod) override;
-        UserName *getModuleUserName() override;
+        UserName& getModuleUserName() override;
 
         void setModuleHostName(HostName &mod) override;
-        HostName *getModuleHostName() override;
+        HostName& getModuleHostName() override;
 
         void setModuleCore(Core &mod) override;
-        Core *getModuleCore() override;
+        Core& getModuleCore() override;
 
         void setModuleTimeAndDate(TimeAndDate &mod) override;
-        TimeAndDate *getModuleTimeAndDate() override;
+        TimeAndDate& getModuleTimeAndDate() override;
 
         void setModuleOsInfo(OsInfo &mod) override;
-        OsInfo *getModuleOsInfo() override;
+        OsInfo& getModuleOsInfo() override;
 
         void setModuleNetwork(Network &mod) override;
-        Network * getModuleNetwork() override;
-
-        void InitModule(std::string lib);
+        Network& getModuleNetwork() override;
 
         enum DisplayLib _Lib;
 
     private:
-        Memory *_ModuleMemory;
-        UserName *_ModuleUserName;
-        HostName *_ModuleHostName;
-        Core *_ModuleCore;
-        OsInfo *_ModuleOsInfo;
-        TimeAndDate *_ModuleTimeAndDate;
-        Network *_ModuleNetwork;
+        Memory _ModuleMemory;
+        UserName _ModuleUserName;
+        HostName _ModuleHostName;
+        Core _ModuleCore;
+        OsInfo _ModuleOsInfo;
+        TimeAndDate _ModuleTimeAndDate;
+        Network _ModuleNetwork;
     };
 }
-
 
 #endif //B_CPP_300_LYN_3_1_CPPRUSH3_MAXIME_PAYANT_BODY_HPP

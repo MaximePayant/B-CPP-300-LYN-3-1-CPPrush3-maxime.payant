@@ -33,7 +33,6 @@ namespace sysI
                     std::string _frequency;
                     std::string _maxFrequency;
                     std::string _procInTime;
-                    std::string _cputemp;
                 public:
                     CPU();
 
@@ -42,16 +41,18 @@ namespace sysI
                     const std::string &getFrequency() const;
                     const std::string &getMaxFrequency() const;
                     const std::string &getProcInTime() const;
-                    const std::string &getCputemp() const;
             };
+            std::string _cputemp;
             unsigned _coreCount;
-            std::map<std::string, CPU> _core;
             std::string _name;
+
         public:
             Core();
+            std::map<std::string, CPU> _core;
             const std::string &getName() const;
             void checkCore();
             unsigned getCoreCount() const;
+            const std::string &getCputemp() const;
 
     };
 

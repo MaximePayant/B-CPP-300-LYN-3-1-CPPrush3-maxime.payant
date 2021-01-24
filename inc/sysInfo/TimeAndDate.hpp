@@ -14,9 +14,10 @@ namespace sysI {
         public:
             TimeAndDate();
             ~TimeAndDate();
+            void update();
 
-        std :: string _time;
-        std :: string _date;
+            std::string _time;
+            std::string _date;
     };
 }
 

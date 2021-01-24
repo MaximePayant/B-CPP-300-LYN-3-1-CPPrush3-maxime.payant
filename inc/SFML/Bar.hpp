@@ -15,21 +15,24 @@ namespace sfI
 
     class Bar
     {
+        public:
+            typedef enum {RAM, SWAP, CORE} BarType;
+            const sf::IntRect barPrefab[3] = {{0, 761, 530, 21},
+                                              {0, 783, 167, 21},
+                                              {0, 805, 206, 21}};
 
         private:
             sf::Vector2f _pos;
             sf::Sprite _spr;
+            BarType _type;
 
         public:
-            typedef enum {RAM, SWAP, CORE} BarType;
-            const sf::IntRect barPrefab[3] = {{0, 711, 530, 21},
-                                              {0, 733, 167, 21},
-                                              {0, 877, 206, 21}};
-
+            Bar() {};
             Bar(const sf::Vector2f& pos, BarType type);
             ~Bar();
 
-            const sf::Sprite& get() const { return (_spr); }
+            const sf::Sprite& get() const { return (_spr); };
+            void setPercent(double percent);
 
     };
 

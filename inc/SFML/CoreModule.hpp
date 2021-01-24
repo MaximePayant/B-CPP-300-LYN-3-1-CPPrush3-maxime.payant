@@ -16,6 +16,11 @@ namespace sfI
     class CoreModule
     {
 
+        public:
+            static sf::Vector2f posList[12];
+            static sf::Vector2f barPosList[12];
+            static sf::Vector2f textPosList[12];
+
         private:
             sf::Vector2f _pos;
 

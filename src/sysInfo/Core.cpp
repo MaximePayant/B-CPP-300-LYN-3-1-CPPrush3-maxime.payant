@@ -13,8 +13,7 @@ _lastWorkJiffies(0),
 _percent(0),
 _frequency(""),
 _maxFrequency(""),
-_procInTime(""),
-_cputemp("")
+_procInTime("")
 {}
 
 static unsigned calcTotalJiffies(unsigned index, const std::string& cpuInfo)
@@ -118,7 +117,6 @@ void sysI::Core::CPU::updateCPU(unsigned index, const std::string& cpuInfo)
     _lastTotalJiffies = totalJiffies;
     _lastWorkJiffies = workJiffies;
     _procInTime = check_ProcInTime(_procInTime);
-    _cputemp = check_cpuTemp(_cputemp);
 }
 
 const std::string &sysI::Core::CPU::getFrequency() const {
@@ -131,10 +129,6 @@ const std::string &sysI::Core::CPU::getMaxFrequency() const {
 
 const std::string &sysI::Core::CPU::getProcInTime() const {
     return _procInTime;
-}
-
-const std::string &sysI::Core::CPU::getCputemp() const {
-    return _cputemp;
 }
 
 std::string check_name(std::string name) {
@@ -155,7 +149,8 @@ std::string check_name(std::string name) {
 }
 
 
-sysI::Core::Core()
+sysI::Core::Core() :
+_cputemp("")
 {
     _coreCount = std::thread::hardware_concurrency();
     _name = check_name(_name);
@@ -174,9 +169,9 @@ void sysI::Core::checkCore()
     for (unsigned ctr = 0; ctr < _coreCount; ctr += 1) {
         std::size_t pos = str.find("cpu" + std::to_string(ctr));
         std::size_t pos2 = str.find("\n", pos);
-        _core["cpu" + std::to_string(ctr + 1)].updateCPU(ctr, str.substr(pos, pos2 - pos));
-        std::cout << "cpu" << ctr + 1 << ": " << _core["cpu" + std::to_string(ctr + 1)].getPercent() << "%" << std::endl;
+        _core["cpu" + std::to_string(ctr)].updateCPU(ctr, str.substr(pos, pos2 - pos));
     }
+    _cputemp = check_cpuTemp(_cputemp);
 }
 
 unsigned sysI::Core::getCoreCount() const
@@ -186,4 +181,8 @@ unsigned sysI::Core::getCoreCount() const
 
 const std::string &sysI::Core::getName() const {
     return _name;
+}
+
+const std::string &sysI::Core::getCputemp() const {
+    return _cputemp;
 }

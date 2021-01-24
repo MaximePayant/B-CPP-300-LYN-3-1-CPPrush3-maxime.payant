@@ -14,7 +14,6 @@
 namespace sysI
 {
 
-
     class Memory {
 
         private:

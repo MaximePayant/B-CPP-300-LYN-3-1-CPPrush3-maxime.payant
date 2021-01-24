@@ -11,10 +11,11 @@
 bool MyGKrellmGraphics(sysI::Body& body)
 {
     (void)body;
-    static sfI::System system;
+    static sfI::System system(body);
 
     if (!system._rwindow.isOpen())
         return (false);
+    system.update(body);
     while (system._rwindow.pollEvent(system._event)) {
         if (system._event.type == sf::Event::Closed) {
             system._rwindow.close();
